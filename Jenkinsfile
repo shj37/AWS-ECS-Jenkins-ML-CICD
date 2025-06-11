@@ -1,9 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIAL_ID = 'mlops-jenkins-dockerhub-token'
-        DOCKERHUB_REGISTRY = 'https://registry.hub.docker.com'
-        DOCKERHUB_REPOSITORY = 'juianba/mlops-proj-01'
+        PATH = "${env.HOME}/.local/bin:${env.PATH}"
     }
     stages {
         stage('Clone Repository') {
