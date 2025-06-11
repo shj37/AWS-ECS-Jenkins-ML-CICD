@@ -48,6 +48,7 @@ pipeline {
                 // Build Docker Image
                 script {
                     echo 'Building Docker Image...'
+                    docker.build("mlops-aws-ecs-app")
                 }
             }
         }
