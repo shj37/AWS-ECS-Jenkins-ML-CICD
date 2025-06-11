@@ -11,7 +11,7 @@ pipeline {
                 // Clone Repository
                 script {
                     echo 'Cloning GitHub Repo...'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-token', url: 'https://github.com/iQuantC/MLOps01.git']])
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-access-token', url: 'https://github.com/shj37/AWS-ECS-Jenkins-ML-CICD.git']])
                 }
             }
         }
