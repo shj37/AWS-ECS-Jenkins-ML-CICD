@@ -79,6 +79,7 @@ pipeline {
                 // Deploy Image to Amazon ECS
                 script {
                     echo 'Deploying to production...'
+                    sh "aws ecs update-service --cluster mlops-jenkins-ecs-1 --service mlops-jenkins-01-task-definition-service-radwjwae --force-new-deployment"
                     }
                 }
             }
