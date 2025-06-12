@@ -54,7 +54,7 @@ pipeline {
                 // Trivy Docker Image Scan
                 script {
                     echo 'Scanning Docker Image with Trivy...'
-                    sh "trivy image mlops-aws-ecs-app --format table -o trivy-image-report.html"
+                    sh 'trivy image "mlops-aws-ecs-app" --format table -o trivy-image-report.html'
                 }
             }
         }
