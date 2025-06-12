@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "${env.HOME}/.local/bin:${env.PATH}"
+    }
     stages {
         stage('Clone Repository') {
             steps {
@@ -54,7 +57,7 @@ pipeline {
                 // Trivy Docker Image Scan
                 script {
                     echo 'Scanning Docker Image with Trivy...'
-                    sh "trivy image mlops-aws-ecs-app:latest --format table -o trivy-image-report.html"
+                    sh "trivy image mlops-aws-ecs-app --format table -o trivy-image-report.html"
                 }
             }
         }
