@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        PATH = "${env.HOME}/.local/bin:${env.PATH}"
     }
     stages {
         stage('Clone Repository') {
@@ -9,7 +8,7 @@ pipeline {
                 // Clone Repository
                 script {
                     echo 'Cloning GitHub Repo...'
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-access-token', url: 'https://github.com/shj37/AWS-ECS-Jenkins-ML-CICD.git']])
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-aws-ecs-cicd', url: 'https://github.com/shj37/AWS-ECS-Jenkins-ML-CICD.git']])
                 }
             }
         }
@@ -57,6 +56,7 @@ pipeline {
                 // Trivy Docker Image Scan
                 script {
                     echo 'Scanning Docker Image with Trivy...'
+                    sh "trivy image mlops-aws-ecs-app --format table -o trivy-image-report.html"
                 }
             }
         }
