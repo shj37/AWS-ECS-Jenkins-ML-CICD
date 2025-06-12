@@ -39,3 +39,4 @@ Run `python train.py` to generate the model, then `python app.py` to test locall
 
 - [Medium Article](https://medium.com/@jushijun/automating-ml-model-deployment-a-ci-cd-pipeline-with-jenkins-docker-and-aws-ecs-a7473c4cb92e): Detailed project walkthrough.
 - [YouTube Reference](https://www.youtube.com/watch?v=MwmuwhwzGTk&t=18s): iQuant tutorial.
+- https://github.com/iQuantC/MLOps01
