@@ -1,21 +1,16 @@
-# Dockerfile
+# Use a Jenkins image as base image
 FROM jenkins/jenkins:lts
 
+# Install Docker using the official script
 USER root
-
-# Install Docker CLI (docker.io) from Debian repo
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-      apt-transport-https \
-      ca-certificates \
-      curl \
-      gnupg2 \
-      software-properties-common \
-      docker.io && \
-    # Clean up apt caches to reduce image size
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y curl && \
+    curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh get-docker.sh
 
-# Add jenkins user to docker group
+# Configure Docker to run as a non-root user
 RUN usermod -aG docker jenkins
 
-USER jenkins
+# Enable DinD
+RUN mkdir -p /var/lib/docker
+VOLUME /var/lib/docker
