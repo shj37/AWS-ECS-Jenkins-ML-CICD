@@ -35,6 +35,8 @@ The project automates the deployment of a Flask-based ML application (Iris class
 
 Run `python train.py` to generate the model, then `python app.py` to test locally. The Jenkins pipeline automates linting, testing, building, scanning, and deploying to AWS ECS.
 
+**All credit to iQuant for the original project design and code.**
+
 ## Resources
 
 - [Medium Article](https://medium.com/@jushijun/automating-ml-model-deployment-a-ci-cd-pipeline-with-jenkins-docker-and-aws-ecs-a7473c4cb92e): Detailed project walkthrough.
